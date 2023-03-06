@@ -7,7 +7,7 @@ import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {TrackNavIcon, ScheduleNavIcon, AboutNavIcon, SupportNavIcon} from './components/NavIcons';
-import { TrackPage } from "./pages";
+import { TrackPage, SchedulePage, AboutPage, SupportPage } from "./pages";
 import "./styles";
 
 export default function App() {
@@ -46,28 +46,7 @@ export default function App() {
       .catch(console.error)
   },[])
   
-  function ScheduleScreen() {
-    return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Schedule Screen</Text>
-      </View>
-    );
-  }
-
-  function AboutScreen() {
-    return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>About Screen</Text>
-      </View>
-    );
-  }
-  function SupportScreen() {
-    return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Support Screen</Text>
-      </View>
-    );
-  }
+  
  const Tab = createBottomTabNavigator();
 
   return (
@@ -103,7 +82,7 @@ export default function App() {
         />
         <Tab.Screen
           name="Schedule"
-          component={ScheduleScreen}
+          component={SchedulePage}
           options={{
             tabBarLabel: 'SCHEDULE',
             tabBarIcon: (props) => (
@@ -114,7 +93,7 @@ export default function App() {
 
         <Tab.Screen
           name="About"
-          component={AboutScreen}
+          component={AboutPage}
           options={{
             tabBarLabel: 'ABOUT',
             tabBarIcon: (props) => (
@@ -125,7 +104,7 @@ export default function App() {
 
         <Tab.Screen
           name="Support"
-          component={SupportScreen}
+          component={SupportPage}
           options={{
             tabBarLabel: 'SUPPORT',
             tabBarIcon: (props) => (

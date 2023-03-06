@@ -1,10 +1,11 @@
 import { Text, View } from "react-native";
  
-export const About = ({ navigation }) => {
+export const AboutPage = ({ navigation }) => {
   console.log(navigation)
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <View className="flex flex-1 items-center justify-center mb-auto mt-auto">
       <Text>About Screen</Text>
     </View>
   );
 }
+
