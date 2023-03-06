@@ -7,6 +7,7 @@ import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {TrackNavIcon, ScheduleNavIcon, AboutNavIcon, SupportNavIcon} from './components/NavIcons';
+import { TrackPage } from "./pages";
 import "./styles";
 
 export default function App() {
@@ -44,21 +45,26 @@ export default function App() {
     getCities()
       .catch(console.error)
   },[])
-  function HomeScreen({ navigation }) {
+  
+  function ScheduleScreen() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Home Screen</Text>
-        <Button
-          title="Go to Details"
-          onPress={() => navigation.navigate('Details')}
-        />
+        <Text>Schedule Screen</Text>
       </View>
     );
   }
-  function DetailsScreen() {
+
+  function AboutScreen() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Details Screen</Text>
+        <Text>About Screen</Text>
+      </View>
+    );
+  }
+  function SupportScreen() {
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text>Support Screen</Text>
       </View>
     );
   }
@@ -66,7 +72,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <View className="flex-1 justify-center bg-white">
+      {/* <View className="flex-1 justify-center bg-white">
         <MapView 
             style={styles.map}
             provider={PROVIDER_GOOGLE}
@@ -75,7 +81,7 @@ export default function App() {
           />
         <Text>Open up App.js to start working on your app!</Text>
         <StatusBar style="auto" />
-      </View>
+      </View> */}
       <Tab.Navigator screenOptions={{
         headerShown:false,
         tabBarActiveTintColor: '#fff',
@@ -86,7 +92,7 @@ export default function App() {
       }}>
         <Tab.Screen 
           name="Home"
-          component={HomeScreen}
+          component={TrackPage}
           options={{
             tabBarLabel: 'TRACK',
             tabBarIcon: (props) => (
@@ -97,7 +103,7 @@ export default function App() {
         />
         <Tab.Screen
           name="Schedule"
-          component={DetailsScreen}
+          component={ScheduleScreen}
           options={{
             tabBarLabel: 'SCHEDULE',
             tabBarIcon: (props) => (
@@ -108,7 +114,7 @@ export default function App() {
 
         <Tab.Screen
           name="About"
-          component={HomeScreen}
+          component={AboutScreen}
           options={{
             tabBarLabel: 'ABOUT',
             tabBarIcon: (props) => (
@@ -119,7 +125,7 @@ export default function App() {
 
         <Tab.Screen
           name="Support"
-          component={DetailsScreen}
+          component={SupportScreen}
           options={{
             tabBarLabel: 'SUPPORT',
             tabBarIcon: (props) => (
