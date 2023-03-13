@@ -16,12 +16,14 @@ export const AboutPage = ({ navigation }) => {
         <Text className="font-bold text-gray-dark mt-3">Contact Information</Text>
         <Text className="text-gray-dark text-justify my-2">For any issues and concerns, you may contact CSMO at 84266001 local 4104/4107 or CSD at local 4111 or through their email at csmo@ateneo.edu</Text>
       </View>
-      <View className="relative">
-        <Image source={image} className="h-16 w-auto" resizeMode="contain"/>
+      <View className="relative flex items-center">
+      <Image source={image} className="h-16 w-auto" resizeMode="contain"/>
+
         <Pressable
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 "
+          className="absolute  top-6"
           onPress={() => navigation.navigate('AboutModal')}
         >
+
           <Text className="font-bold text-gray-dark">View Map</Text>
         </Pressable>
       </View>
