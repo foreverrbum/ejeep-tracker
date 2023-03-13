@@ -8,7 +8,7 @@ import { NavigationContainer, DefaultTheme} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {TrackNavIcon, ScheduleNavIcon, AboutNavIcon, SupportNavIcon} from './components/NavIcons';
-import { TrackPage, SchedulePage, AboutPage, SupportPage, AboutModal } from "./pages";
+import { TrackPage, SchedulePage, AboutPage, SupportPage, RoutesModal } from "./pages";
 import "./styles";
 
 export default function App() {
@@ -76,7 +76,7 @@ export default function App() {
         <Stack.Screen name="main" component={TabNavigation} />
 
         <Stack.Group screenOptions={{ presentation: 'modal' }}>
-          <Stack.Screen name="AboutModal"  component={AboutModal} />
+          <Stack.Screen name="RoutesModal"  component={RoutesModal} />
         </Stack.Group>
         {/* <Stack.Screen name="main" component={TabNavigation} /> */}
 
@@ -99,6 +99,16 @@ const TabNavigation = () => {
       tabBarLabelPosition: 'below-icon'
     }}>
       <Tab.Screen
+        name="Schedule"
+        component={SchedulePage}
+        options={{
+          tabBarLabel: 'SCHEDULE',
+          tabBarIcon: (props) => (
+            <ScheduleNavIcon {...props}/>
+          ) 
+        }}
+      />
+      <Tab.Screen
         name="About"
         component={AboutPage}
         options={{
@@ -120,16 +130,7 @@ const TabNavigation = () => {
   
       />
   
-      <Tab.Screen
-        name="Schedule"
-        component={SchedulePage}
-        options={{
-          tabBarLabel: 'SCHEDULE',
-          tabBarIcon: (props) => (
-            <ScheduleNavIcon {...props}/>
-          ) 
-        }}
-      />
+      
       
   
       <Tab.Screen

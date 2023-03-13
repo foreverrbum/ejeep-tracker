@@ -1,30 +1,8 @@
-import { Pressable, Text, View } from "react-native";
-import { LogoContainer } from "../components/LogoContainer";
-import { TitleBanner } from "../components/TitleBanner";
 import Svg, {Path} from 'react-native-svg';
 
-export const AboutModal = ({ navigation }) => {
-  return (
-    <View className="bg-white">
-      <LogoContainer></LogoContainer>
-      <TitleBanner title="E-JEEP ROUTES"/>
-      <View className="my-10 items-center">
-        <EjeepRoutes/>
-      </View>
-      <View className="flex items-center">
-        <Pressable className="bg-blue-dark rounded-md px-4 py-2"
-          onPress={()=>navigation.goBack()}
-        >
-          <Text className="text-white font-bold">Back</Text>
-        </Pressable>
 
-      </View>
 
-    </View>
-  );
-}
-
-const EjeepRoutes = () => {
+export const EjeepRoutes = () => {
   return(
     <Svg width="361" height="326" viewBox="0 0 361 326" fill="none">
       <Path fill-rule="evenodd" clip-rule="evenodd" d="M42.3377 7.05628H13.407V0H42.3377V7.05628Z" fill="#EAB95A"/>

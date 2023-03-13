@@ -1,8 +1,8 @@
-import { Button, Pressable, Text, View, Image } from "react-native";
+import { Pressable, Text, View, Image } from "react-native";
 import { LogoContainer } from "../components/LogoContainer";
 import { TitleBanner } from "../components/TitleBanner";
 
-const image = require('../assets/viewRoutes.png');
+const image = require('../assets/viewRoutesBTN.png');
 export const AboutPage = ({ navigation }) => {
   return (
     <View>
@@ -17,13 +17,11 @@ export const AboutPage = ({ navigation }) => {
         <Text className="text-gray-dark text-justify my-2">For any issues and concerns, you may contact CSMO at 84266001 local 4104/4107 or CSD at local 4111 or through their email at csmo@ateneo.edu</Text>
       </View>
       <View className="relative flex items-center">
-      <Image source={image} className="h-16 w-auto" resizeMode="contain"/>
-
+        <Image source={image} className="h-16 w-auto" resizeMode="contain"/>
         <Pressable
-          className="absolute  top-6"
-          onPress={() => navigation.navigate('AboutModal')}
+          className="absolute p-8 py-6"
+          onPress={() => navigation.navigate('RoutesModal')}
         >
-
           <Text className="font-bold text-gray-dark">View Map</Text>
         </Pressable>
       </View>
