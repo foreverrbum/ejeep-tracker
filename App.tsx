@@ -1,9 +1,6 @@
 import React, {useEffect} from "react";
-import { StatusBar } from "expo-status-bar";
-import { Button, Text, View, StyleSheet } from "react-native";
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, child, get } from "firebase/database";
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import { NavigationContainer, DefaultTheme} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -23,16 +20,9 @@ export default function App() {
   // };
   // const app = initializeApp(firebaseConfig);
   // const dbRef = ref(getDatabase());
-  // const location = {
-  //   latitude: 14.640037858362918,
-  //   longitude: 121.07847243952978,
-  //   latitudeDelta: 0.009,
-  //   longitudeDelta: 0.009
-
-  // }
+  
   // useEffect(()=>{
   //   const getCities = async () => {
-      
   //     get(child(dbRef, `glossary`)).then((snapshot) => {
   //       if (snapshot.exists()) {
   //         console.log(snapshot.val());
@@ -57,16 +47,7 @@ export default function App() {
   };
   return (
     <NavigationContainer theme={MyTheme}>
-      {/* <View className="flex-1 justify-center bg-white">
-        <MapView 
-            style={styles.map}
-            provider={PROVIDER_GOOGLE}
-            mapType='hybrid'
-            region={location}
-          />
-        <Text>Open up App.js to start working on your app!</Text>
-        <StatusBar style="auto" />
-      </View> */}
+
       <Stack.Navigator
         screenOptions={{
           headerShown: false,
@@ -78,7 +59,6 @@ export default function App() {
         <Stack.Group screenOptions={{ presentation: 'modal' }}>
           <Stack.Screen name="RoutesModal"  component={RoutesModal} />
         </Stack.Group>
-        {/* <Stack.Screen name="main" component={TabNavigation} /> */}
 
       </Stack.Navigator>
         
@@ -143,12 +123,3 @@ const TabNavigation = () => {
     </Tab.Navigator>    
   );
 }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  map: {
-    width: '100%',
-    height: '100%',
-  },
-});
