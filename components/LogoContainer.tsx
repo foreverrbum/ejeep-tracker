@@ -1,5 +1,5 @@
 import Svg, {Path, Circle} from 'react-native-svg';
-import { Text, View } from "react-native";
+import { View } from "react-native";
  
 const EjeepTrackerLogo = () => {
   return(

@@ -2,9 +2,9 @@ import { useState } from "react";
 import { Text, View, Pressable, Image } from "react-native";
 import { LogoContainer } from "../components/LogoContainer";
 import { TitleBanner } from "../components/TitleBanner";
-import  { LineASched, LineBSched } from "../components/Images/Schedules";
-const LineA = require('../assets/viewRouteA.png');
-const LineB = require('../assets/viewRouteB.png');
+import  { LineASched, LineBSched } from "../assets/svgs/Schedules";
+const LineA = require('../assets/images/viewRouteA.png');
+const LineB = require('../assets/images/viewRouteB.png');
 
 export const SchedulePage = ({ navigation }) => {
   const [line, handleLine] = useState('A');

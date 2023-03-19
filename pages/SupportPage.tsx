@@ -1,7 +1,7 @@
 import { Text, View, TextInput, TouchableWithoutFeedback, Keyboard, ScrollView, Pressable, Modal, StyleSheet, Button, KeyboardAvoidingView, Platform } from "react-native";
 import { useRef, useState } from "react";
 import { LogoContainer } from "../components/LogoContainer";
-import { ArrowLeft } from "../components/Icons/ArrowLeft";
+import { ArrowLeft } from "../assets/svgs/ArrowLeft";
 export const SupportPage = ({ navigation }) => {
   const ref = useRef();
   const inputAccessoryViewID = 'uniqueID';
