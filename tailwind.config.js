@@ -14,7 +14,11 @@ module.exports = {
           'medium': '#CBCEDA',
           'light': '#F0F2F8',
         },
-        green: '#53B46D'
+        green: '#53B46D',
+        line:{
+          a: '#E5BC2A',
+          b: '#8F7D40'
+        }
       }
     },
   },

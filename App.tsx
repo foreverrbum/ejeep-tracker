@@ -113,7 +113,7 @@ const TabNavigation = () => {
         name="Schedule"
         component={SchedulePage}
         options={{
-          tabBarLabel: 'SCHEDULE',
+          tabBarLabel: 'ETAs',
           tabBarIcon: (props) => (
             <ScheduleNavIcon {...props}/>
           ) 
