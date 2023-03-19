@@ -98,6 +98,17 @@ const TabNavigation = () => {
       tabBarInactiveBackgroundColor: '#fff',
       tabBarLabelPosition: 'below-icon'
     }}>
+      
+      <Tab.Screen 
+        name="Home"
+        component={TrackPage}
+        options={{
+          tabBarLabel: 'TRACK',
+          tabBarIcon: (props) => (
+            <TrackNavIcon {...props}/>
+          ) 
+        }}
+      />
       <Tab.Screen
         name="Schedule"
         component={SchedulePage}
@@ -118,21 +129,6 @@ const TabNavigation = () => {
           ) 
         }}
       />
-      <Tab.Screen 
-        name="Home"
-        component={TrackPage}
-        options={{
-          tabBarLabel: 'TRACK',
-          tabBarIcon: (props) => (
-            <TrackNavIcon {...props}/>
-          ) 
-        }}
-  
-      />
-  
-      
-      
-  
       <Tab.Screen
         name="Support"
         component={SupportPage}
@@ -143,6 +139,7 @@ const TabNavigation = () => {
           ) 
         }}
       />
+      
     </Tab.Navigator>    
   );
 }
