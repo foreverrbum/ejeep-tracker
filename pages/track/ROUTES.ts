@@ -89,6 +89,7 @@ export const MARKERS = _.uniq(_.concat(LINE_A, LINE_B))
 
 export const POLYLINE_A = [
 	{ latitude: 14.637864756965353, longitude: 121.07495470477606 },
+	{ latitude: 14.639942460975785, longitude: 121.07872004372351 },
 	{ latitude: 14.636676879666329, longitude: 121.07818357693269 },
 	{ latitude: 14.635939799891771, longitude: 121.07637196390262 },
 	{ latitude: 14.634428736676266, longitude: 121.0764358420065 },
@@ -98,3 +99,4 @@ export const POLYLINE_A = [
 	{ latitude: 14.637272017219226, longitude: 121.07643066819381 },
 	{ latitude: 14.637651142724838, longitude: 121.07634707499543 }
 ]
+export const POLYLINE_B = LINE_B.map((line) => line.coordinate)
