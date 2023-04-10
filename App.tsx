@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { initializeApp } from 'firebase/app'
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context'
 import { getDatabase, ref, child, get } from 'firebase/database'
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
@@ -46,23 +47,26 @@ export default function App() {
 		}
 	}
 	return (
-		<NavigationContainer theme={MyTheme}>
-			<Stack.Navigator
-				screenOptions={{
-					headerShown: false
-				}}
-			>
-				<Stack.Screen name="main" component={TabNavigation} />
+		<SafeAreaView className="flex-1">
+			<NavigationContainer theme={MyTheme}>
+				<Stack.Navigator
+					screenOptions={{
+						headerShown: false
+					}}
+				>
+					<Stack.Screen name="main" component={TabNavigation} />
 
-				<Stack.Group screenOptions={{ presentation: 'modal' }}>
-					<Stack.Screen name="RoutesModal" component={RoutesModal} />
-				</Stack.Group>
-			</Stack.Navigator>
-		</NavigationContainer>
+					<Stack.Group screenOptions={{ presentation: 'modal' }}>
+						<Stack.Screen name="RoutesModal" component={RoutesModal} />
+					</Stack.Group>
+				</Stack.Navigator>
+			</NavigationContainer>
+		</SafeAreaView>
 	)
 }
 
 const TabNavigation = () => {
+	const insets = useSafeAreaInsets()
 	const Tab = createBottomTabNavigator()
 	return (
 		<Tab.Navigator
@@ -72,7 +76,9 @@ const TabNavigation = () => {
 				tabBarInactiveTintColor: '#85A7F2',
 				tabBarActiveBackgroundColor: '#446DC9',
 				tabBarInactiveBackgroundColor: '#fff',
-				tabBarLabelPosition: 'below-icon'
+				tabBarLabelPosition: 'below-icon',
+				tabBarStyle: { height: 50 + insets.bottom },
+				tabBarLabelStyle: { paddingBottom: 4 }
 			}}
 		>
 			<Tab.Screen

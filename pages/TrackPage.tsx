@@ -5,6 +5,7 @@ import { MAP_STYLES, CUSTOM_MAP_STYLES, INITIAL_LOCATION, BOUNDARIES } from './t
 import { BPin } from '../assets/svgs/BPin'
 import { MARKERS } from './track/ROUTES'
 import { RouteFill } from './track/RouteFill'
+import { Slider } from './track/Slider'
 
 export const TrackPage = ({ navigation }) => {
 	const [load, handleLoad] = useState(true)
@@ -43,7 +44,7 @@ export const TrackPage = ({ navigation }) => {
 						return (
 							<Marker key={i} title={marker.title} coordinate={marker.coordinate}>
 								<View className={`flex items-center ${marker.hidden === true && 'hidden'}`}>
-									<Text className={`font-bold text-xs text-[${marker.color}] `}>{marker.label}</Text>
+									<Text className={`font-bold text-xs text-gray-dark`}>{marker.label}</Text>
 									<BPin fill={marker.color} />
 								</View>
 							</Marker>
@@ -51,9 +52,7 @@ export const TrackPage = ({ navigation }) => {
 					})}
 					<RouteFill />
 				</MapView>
-				<View className="absolute h-32 bg-white z-10 bottom-0 w-full">
-					<Text className="">Slider Component</Text>
-				</View>
+				<Slider />
 			</View>
 		</View>
 	)
