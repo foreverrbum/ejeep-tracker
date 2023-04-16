@@ -5,7 +5,7 @@ import { MAP_STYLES, CUSTOM_MAP_STYLES, INITIAL_LOCATION, BOUNDARIES } from './t
 import { BPin } from '../assets/svgs/BPin'
 import { MARKERS } from './track/ROUTES'
 import { RouteFill } from './track/RouteFill'
-import { Slider } from './track/Slider'
+import { SliderHolder } from './track/Slider/SliderHolder'
 
 export const TrackPage = ({ navigation }) => {
 	const [load, handleLoad] = useState(true)
@@ -52,7 +52,7 @@ export const TrackPage = ({ navigation }) => {
 					})}
 					<RouteFill />
 				</MapView>
-				<Slider />
+				<SliderHolder />
 			</View>
 		</View>
 	)

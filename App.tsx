@@ -47,21 +47,21 @@ export default function App() {
 		}
 	}
 	return (
-		<SafeAreaView className="flex-1">
-			<NavigationContainer theme={MyTheme}>
-				<Stack.Navigator
-					screenOptions={{
-						headerShown: false
-					}}
-				>
-					<Stack.Screen name="main" component={TabNavigation} />
+		// <SafeAreaView className="flex-1">
+		<NavigationContainer theme={MyTheme}>
+			<Stack.Navigator
+				screenOptions={{
+					headerShown: false
+				}}
+			>
+				<Stack.Screen name="main" component={TabNavigation} />
 
-					<Stack.Group screenOptions={{ presentation: 'modal' }}>
-						<Stack.Screen name="RoutesModal" component={RoutesModal} />
-					</Stack.Group>
-				</Stack.Navigator>
-			</NavigationContainer>
-		</SafeAreaView>
+				<Stack.Group screenOptions={{ presentation: 'modal' }}>
+					<Stack.Screen name="RoutesModal" component={RoutesModal} />
+				</Stack.Group>
+			</Stack.Navigator>
+		</NavigationContainer>
+		// </SafeAreaView>
 	)
 }
 
