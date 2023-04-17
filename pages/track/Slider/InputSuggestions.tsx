@@ -28,6 +28,7 @@ export const InputSuggestions = () => {
 					</View>
 				)
 			})}
+			{/* padding for scroll */}
 			<View className="h-40 w-full bg-white"></View>
 		</ScrollView>
 	)

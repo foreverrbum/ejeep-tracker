@@ -1,5 +1,6 @@
 import { Text, TextInput, View, Pressable, TouchableOpacity } from 'react-native'
 import { Destination, Origin, Switch } from '../../../assets/svgs'
+import { BLUE_DARK } from '../../../constants/colors'
 
 export const Form = () => {
 	return (
@@ -9,7 +10,7 @@ export const Form = () => {
 				<View className="grow flex gap-y-2.5">
 					<View className="flex flex-row gap-x-2.5 mr-2.5">
 						<View className="w-[18px] flex items-center justify-center">
-							<Origin />
+							<Origin fill={BLUE_DARK} />
 						</View>
 						<TextInput
 							className="grow h-[30px] bg-gray-light rounded-md px-3 pb-[3px] text-gray-dark text-sm"
@@ -18,7 +19,7 @@ export const Form = () => {
 					</View>
 					<View className="flex flex-row gap-x-2.5 mr-2.5">
 						<View className="w-[18px] flex items-center justify-center">
-							<Destination />
+							<Destination fill={BLUE_DARK} />
 						</View>
 						<TextInput
 							className="grow h-[30px] bg-gray-light rounded-md px-3 pb-[3px] text-gray-dark text-sm"

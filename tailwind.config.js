@@ -16,7 +16,7 @@ module.exports = {
 				},
 				green: '#53B46D',
 				line: {
-					a: '#E5BC2A',
+					a: '#EAB95A',
 					b: '#8F7D40'
 				}
 			}

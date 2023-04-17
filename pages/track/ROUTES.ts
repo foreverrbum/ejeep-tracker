@@ -109,3 +109,48 @@ export const POLYLINE_A = [
 	{ latitude: 14.637651142724838, longitude: 121.07634707499543 } // 9 jsec
 ]
 export const POLYLINE_B = LINE_B.map((line) => line.coordinate)
+export const TEST_ROUTE = {
+	lines: ['b', 'a'],
+	stations: [
+		{
+			station: 'High School',
+			line: ['b'],
+			time: '11:40 AM'
+		},
+		{
+			station: 'Soc Dev Complex',
+			line: ['b'],
+			time: '11:40 AM'
+		},
+		{
+			station: 'Xavier Hall',
+			line: ['b', 'a'],
+			time: '11:40 AM'
+		},
+		{
+			station: 'FA Annex',
+			line: ['a'],
+			time: '11:40 AM'
+		},
+		{
+			station: 'Hagdan/LST',
+			line: ['a'],
+			time: '11:40 AM'
+		},
+		{
+			station: 'Grade School',
+			line: ['a'],
+			time: '11:40 AM'
+		},
+		{
+			station: 'Gate 2.5',
+			line: ['a'],
+			time: '11:40 AM'
+		},
+		{
+			station: 'Leong Hall',
+			line: ['a'],
+			time: '11:40 AM'
+		}
+	]
+}
