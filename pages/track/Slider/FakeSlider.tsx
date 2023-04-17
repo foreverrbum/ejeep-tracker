@@ -1,6 +1,5 @@
 import React, { useRef } from 'react'
 import { View, Platform, UIManager, LayoutAnimation, Animated, PanResponder } from 'react-native'
-
 import { Form } from './Form'
 import { InputSuggestions } from './InputSuggestions'
 

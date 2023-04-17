@@ -1,8 +1,5 @@
 import { Text, TextInput, View, Pressable, TouchableOpacity } from 'react-native'
-
-import { Destination } from '../../../assets/svgs/Destination'
-import { Origin } from '../../../assets/svgs/Origin'
-import { Switch } from '../../../assets/svgs/Switch'
+import { Destination, Origin, Switch } from '../../../assets/svgs'
 
 export const Form = () => {
 	return (

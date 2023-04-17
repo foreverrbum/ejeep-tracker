@@ -5,7 +5,7 @@ import { getDatabase, ref, child, get } from 'firebase/database'
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { TrackNavIcon, ScheduleNavIcon, AboutNavIcon, SupportNavIcon } from './assets/svgs/NavIcons'
+import { TrackNavIcon, ScheduleNavIcon, AboutNavIcon, SupportNavIcon } from './assets/svgs'
 import { TrackPage, SchedulePage, AboutPage, SupportPage, RoutesModal } from './pages'
 import './styles'
 

@@ -11,7 +11,7 @@ import {
 } from 'react-native'
 import { useState } from 'react'
 import { LogoContainer } from '../components/LogoContainer'
-import { ArrowLeft } from '../assets/svgs/ArrowLeft'
+import { ArrowLeft } from '../assets/svgs'
 export const SupportPage = ({ navigation }) => {
 	const [value, onChangeText] = useState('Type Here')
 	const [showModal, handleShowModal] = useState(false)

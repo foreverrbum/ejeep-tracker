@@ -1,13 +1,11 @@
 import { Text, View, ScrollView } from 'react-native'
-import { Bus } from '../../../assets/svgs/Bus'
+import { Bus } from '../../../assets/svgs'
 
 export const InputSuggestions = () => {
 	const arr = ['1', '2', '3', '4', '5', '6', '7']
 
 	return (
 		<ScrollView className="">
-			{/* icon 40px mr-15px items-center gap-x-1; text is 16px from icon */}
-			{/* divider, 2px, w-full mx-4 light gray */}
 			{arr.map((item, i) => {
 				return (
 					<View key={i}>

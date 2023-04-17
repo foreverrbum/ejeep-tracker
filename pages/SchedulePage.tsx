@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Text, View, Pressable, Image } from 'react-native'
 import { LogoContainer } from '../components/LogoContainer'
 import { TitleBanner } from '../components/TitleBanner'
-import { LineASched, LineBSched } from '../assets/svgs/Schedules'
+import { LineASched, LineBSched } from '../assets/svgs'
 import { ScheduleTabs } from '../components/ScheduleTabs'
 const LineA = require('../assets/images/viewRouteA.png')
 const LineB = require('../assets/images/viewRouteB.png')

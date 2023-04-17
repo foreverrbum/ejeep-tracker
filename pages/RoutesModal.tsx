@@ -1,7 +1,7 @@
 import { Pressable, Text, View } from 'react-native'
 import { LogoContainer } from '../components/LogoContainer'
 import { TitleBanner } from '../components/TitleBanner'
-import { EjeepRoutes } from '../assets/svgs/Routes'
+import { EjeepRoutes } from '../assets/svgs'
 
 export const RoutesModal = ({ navigation }) => {
 	return (
