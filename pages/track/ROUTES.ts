@@ -1,4 +1,5 @@
 import _ from 'lodash'
+import { LINE_A as LINE_A_COLOR, LINE_B as LINE_B_COLOR, GRAY_DARK } from '../../constants/colors'
 export const LINE_A = [
 	{
 		id: '1',
@@ -8,7 +9,7 @@ export const LINE_A = [
 			latitude: 14.639942460975785,
 			longitude: 121.07872004372351
 		},
-		color: '#595C68'
+		line: ['a', 'b']
 	},
 	{
 		id: 'a2',
@@ -18,7 +19,7 @@ export const LINE_A = [
 			latitude: 14.636676879666329,
 			longitude: 121.07818357693269
 		},
-		color: '#EAB95A'
+		line: ['a']
 	},
 	{
 		id: 'a3',
@@ -28,7 +29,7 @@ export const LINE_A = [
 			latitude: 14.636027051065314,
 			longitude: 121.08066658895413
 		},
-		color: '#EAB95A'
+		line: ['a']
 	},
 	{
 		id: 'a4',
@@ -38,7 +39,7 @@ export const LINE_A = [
 			latitude: 14.634782213092796,
 			longitude: 121.07616865459035
 		},
-		color: '#EAB95A'
+		line: ['a']
 	},
 	{
 		id: 'a5',
@@ -48,7 +49,7 @@ export const LINE_A = [
 			latitude: 14.637864756965353,
 			longitude: 121.07495470477606
 		},
-		color: '#EAB95A'
+		line: ['a']
 	},
 	{
 		id: 'a6',
@@ -58,10 +59,10 @@ export const LINE_A = [
 			latitude: 14.640833122286619,
 			longitude: 121.07629298277074
 		},
-		color: '#EAB95A'
+		line: ['a']
 	}
 ]
-const LINE_B = [
+export const LINE_B = [
 	{
 		id: '1',
 		label: 'Xavier Hall',
@@ -70,7 +71,7 @@ const LINE_B = [
 			latitude: 14.639942460975785,
 			longitude: 121.07872004372351
 		},
-		color: '#595C68'
+		line: ['a', 'b']
 	},
 	{
 		id: 'b2',
@@ -80,7 +81,7 @@ const LINE_B = [
 			latitude: 14.644426369599794,
 			longitude: 121.0807136725779
 		},
-		color: '#8F7D40'
+		line: ['b']
 	},
 	{
 		id: 'b3',
@@ -90,7 +91,7 @@ const LINE_B = [
 			latitude: 14.641797079663988,
 			longitude: 121.07776984995961
 		},
-		color: '#8F7D40'
+		line: ['b']
 	},
 	{
 		id: 'b4',
@@ -100,12 +101,16 @@ const LINE_B = [
 			latitude: 14.641371867430127,
 			longitude: 121.07655753524874
 		},
-		color: '#8F7D40',
+		line: ['b'],
 		hidden: true
 	}
 ]
-export const MARKERS = _.uniq(_.concat(LINE_A, LINE_B))
-
+export const ALL_STATIONS = _.concat(LINE_A, _.slice(LINE_B, 1, LINE_B.length))
+export const MARKERS = ALL_STATIONS.map((station) => {
+	let color = station.line[0] === 'a' ? LINE_A_COLOR : LINE_B_COLOR
+	station.color = station.line.length > 1 ? GRAY_DARK : color
+	return station
+})
 export const POLYLINE_A = [
 	{ latitude: 14.637864756965353, longitude: 121.07495470477606 }, // 0 gate 2.5
 	{ latitude: 14.640833122286619, longitude: 121.07629298277074 }, // 1 leong

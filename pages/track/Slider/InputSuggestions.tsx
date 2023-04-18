@@ -1,23 +1,31 @@
+import { useState } from 'react'
 import { Text, View, ScrollView } from 'react-native'
 import { Bus } from '../../../assets/svgs'
+import { ALL_STATIONS } from '../ROUTES'
+import _ from 'lodash'
 
 export const InputSuggestions = () => {
-	const arr = ['1', '2', '3', '4', '5', '6', '7']
+	const [suggestions, handleSuggestions] = useState(ALL_STATIONS)
 
 	return (
 		<ScrollView className="">
-			{arr.map((item, i) => {
+			{suggestions.map((station, i) => {
 				return (
 					<View key={i}>
 						<View className="ml-[15px]  flex flex-row h-[60px]">
 							{/* change to justify-center if not xavier */}
-							<View className="w-10 flex flex-row items-center justify-between ">
-								<Bus line="a" />
-								<Bus line="b" />
+							<View
+								className={`w-10 flex flex-row items-center ${
+									station.id === '1' ? 'justify-between' : 'justify-center'
+								}`}
+							>
+								{station.line.map((line, i) => {
+									return <Bus key={i} line={line} />
+								})}
 							</View>
 							<View className="grow ml-4 flex flex-col justify-center">
-								<Text className="text-base font-bold text-gray-black">Your Location</Text>
-								<Text className="text-sm text-gray-black">Closest Station</Text>
+								<Text className="text-base font-bold text-gray-black">{station.label}</Text>
+								{/* <Text className="text-sm text-gray-black">Closest Station</Text> */}
 							</View>
 						</View>
 

@@ -19,7 +19,9 @@ export const Slider = ({
 	destinationFocus,
 	handleDestinationFocus
 }) => {
-	const [route, handleRoute] = useState(TEST_ROUTE)
+	const [route, handleRoute] = useState(null)
+	const [origin, handleOrigin] = useState(null)
+	const [destination, handleDestination] = useState(null)
 	const panResponder = useRef(
 		PanResponder.create({
 			onMoveShouldSetPanResponder: (evt, gestureState) => {
@@ -44,7 +46,7 @@ export const Slider = ({
 		<Animated.View
 			{...panResponder.panHandlers}
 			className={`absolute ${
-				expand ? 'h-[450px]' : 'h-[155px]'
+				expand ? 'h-[450px]' : 'h-[120px]'
 			} translate-y-0 duration-300 bg-white z-10 bottom-0 w-full rounded-tr-[10px] z-10 rounded-tl-[10px] shadow border border-t border-black/20 flex items-center`}
 		>
 			{/* Input Form */}
@@ -53,6 +55,10 @@ export const Slider = ({
 				handleOriginFocus={handleOriginFocus}
 				destinationFocus={destinationFocus}
 				handleDestinationFocus={handleDestinationFocus}
+				origin={origin}
+				handleOrigin={handleOrigin}
+				destination={destination}
+				handleDestination={handleDestination}
 			/>
 			{!route ? <Dropdown /> : <Routes route={route} />}
 		</Animated.View>

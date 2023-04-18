@@ -14,7 +14,7 @@ export const Routes = ({ route }) => {
 		<>
 			<View className="w-full flex px-4">
 				<ScrollView>
-					<View className={`mt-5 grow h-10 bg-line-${seatBanner.line} p-2 flex-row items-center`}>
+					<View className={`grow h-10 bg-line-${seatBanner.line} p-2 flex-row items-center`}>
 						<Seat />
 						<Text className="ml-[35px] text-sm font-semibold grow text-white">Current Available Seats</Text>
 						<Text className="mr-[30px] text-sm font-semibold text-white">{seatBanner.seats} Seats</Text>

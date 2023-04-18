@@ -24,7 +24,7 @@ export const CollapsedSlider = ({ expand, handleExpand, handleOriginFocus, handl
 		<Animated.View
 			{...panResponder.panHandlers}
 			className={`absolute ${
-				expand ? 'h-[450px]' : 'h-[155px]'
+				expand ? 'h-[450px]' : 'h-[120px]'
 			} translate-y-0 duration-300 bg-white z-10 bottom-0 w-full rounded-tr-[10px] z-10 rounded-tl-[10px] shadow border border-t border-black/20 flex items-center`}
 		>
 			{/* Input Form */}
