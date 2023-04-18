@@ -1,33 +1,7 @@
 import _ from 'lodash'
 export const LINE_A = [
 	{
-		label: 'Grade School',
-		title: 'Grade School',
-		coordinate: {
-			latitude: 14.634782213092796,
-			longitude: 121.07616865459035
-		},
-		color: '#EAB95A'
-	},
-	{
-		label: 'Gate 2.5',
-		title: 'Gate 2.5',
-		coordinate: {
-			latitude: 14.637864756965353,
-			longitude: 121.07495470477606
-		},
-		color: '#EAB95A'
-	},
-	{
-		label: 'Leong Hall',
-		title: 'Leong Hall',
-		coordinate: {
-			latitude: 14.640833122286619,
-			longitude: 121.07629298277074
-		},
-		color: '#EAB95A'
-	},
-	{
+		id: '1',
 		label: 'Xavier Hall',
 		title: 'Xavier Hall',
 		coordinate: {
@@ -37,6 +11,7 @@ export const LINE_A = [
 		color: '#595C68'
 	},
 	{
+		id: 'a2',
 		label: 'Old Comms',
 		title: 'Old Comms',
 		coordinate: {
@@ -46,6 +21,7 @@ export const LINE_A = [
 		color: '#EAB95A'
 	},
 	{
+		id: 'a3',
 		label: 'Hagdan',
 		title: 'Hagdan',
 		coordinate: {
@@ -53,10 +29,51 @@ export const LINE_A = [
 			longitude: 121.08066658895413
 		},
 		color: '#EAB95A'
+	},
+	{
+		id: 'a4',
+		label: 'Grade School',
+		title: 'Grade School',
+		coordinate: {
+			latitude: 14.634782213092796,
+			longitude: 121.07616865459035
+		},
+		color: '#EAB95A'
+	},
+	{
+		id: 'a5',
+		label: 'Gate 2.5',
+		title: 'Gate 2.5',
+		coordinate: {
+			latitude: 14.637864756965353,
+			longitude: 121.07495470477606
+		},
+		color: '#EAB95A'
+	},
+	{
+		id: 'a6',
+		label: 'Leong Hall',
+		title: 'Leong Hall',
+		coordinate: {
+			latitude: 14.640833122286619,
+			longitude: 121.07629298277074
+		},
+		color: '#EAB95A'
 	}
 ]
 const LINE_B = [
 	{
+		id: '1',
+		label: 'Xavier Hall',
+		title: 'Xavier Hall',
+		coordinate: {
+			latitude: 14.639942460975785,
+			longitude: 121.07872004372351
+		},
+		color: '#595C68'
+	},
+	{
+		id: 'b2',
 		label: 'High School',
 		title: 'High School',
 		coordinate: {
@@ -66,6 +83,7 @@ const LINE_B = [
 		color: '#8F7D40'
 	},
 	{
+		id: 'b3',
 		label: 'SDC',
 		title: 'Social Development Complex',
 		coordinate: {
@@ -75,6 +93,7 @@ const LINE_B = [
 		color: '#8F7D40'
 	},
 	{
+		id: 'b4',
 		label: 'NW Parking',
 		title: 'Northwest Parking',
 		coordinate: {
@@ -83,15 +102,6 @@ const LINE_B = [
 		},
 		color: '#8F7D40',
 		hidden: true
-	},
-	{
-		label: 'Xavier Hall',
-		title: 'Xavier Hall',
-		coordinate: {
-			latitude: 14.639942460975785,
-			longitude: 121.07872004372351
-		},
-		color: '#595C68'
 	}
 ]
 export const MARKERS = _.uniq(_.concat(LINE_A, LINE_B))
