@@ -6,7 +6,7 @@ if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental
 	UIManager.setLayoutAnimationEnabledExperimental(true)
 }
 
-export const CollapsedSlider = ({ expand, handleExpand }) => {
+export const CollapsedSlider = ({ expand, handleExpand, handleOriginFocus, handleDestinationFocus }) => {
 	const panResponder = useRef(
 		PanResponder.create({
 			onMoveShouldSetPanResponder: (evt, gestureState) => true,
@@ -28,7 +28,11 @@ export const CollapsedSlider = ({ expand, handleExpand }) => {
 			} translate-y-0 duration-300 bg-white z-10 bottom-0 w-full rounded-tr-[10px] z-10 rounded-tl-[10px] shadow border border-t border-black/20 flex items-center`}
 		>
 			{/* Input Form */}
-			<Form />
+			<Form
+				handleExpand={handleExpand}
+				handleOriginFocus={handleOriginFocus}
+				handleDestinationFocus={handleDestinationFocus}
+			/>
 		</Animated.View>
 	)
 }

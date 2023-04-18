@@ -10,8 +10,16 @@ if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental
 	UIManager.setLayoutAnimationEnabledExperimental(true)
 }
 
-export const Slider = ({ ignoreRegion, expand, handleExpand }) => {
-	const [route, handleRoute] = useState(null)
+export const Slider = ({
+	ignoreRegion,
+	expand,
+	handleExpand,
+	originFocus,
+	handleOriginFocus,
+	destinationFocus,
+	handleDestinationFocus
+}) => {
+	const [route, handleRoute] = useState(TEST_ROUTE)
 	const panResponder = useRef(
 		PanResponder.create({
 			onMoveShouldSetPanResponder: (evt, gestureState) => {
@@ -40,7 +48,12 @@ export const Slider = ({ ignoreRegion, expand, handleExpand }) => {
 			} translate-y-0 duration-300 bg-white z-10 bottom-0 w-full rounded-tr-[10px] z-10 rounded-tl-[10px] shadow border border-t border-black/20 flex items-center`}
 		>
 			{/* Input Form */}
-			<Form />
+			<Form
+				originFocus={originFocus}
+				handleOriginFocus={handleOriginFocus}
+				destinationFocus={destinationFocus}
+				handleDestinationFocus={handleDestinationFocus}
+			/>
 			{!route ? <Dropdown /> : <Routes route={route} />}
 		</Animated.View>
 	)
