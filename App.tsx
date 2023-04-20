@@ -11,32 +11,35 @@ import './styles'
 
 export default function App() {
 	// const firebaseConfig = {
-	//   apiKey: 'AIzaSyCpyjxMbd3rYz5fdoOqxxf1ZVMuqHx5sWk',
-	//   authDomain: 'ejeep-tracker-thesis-7b288.firebaseapp.com',
-	//   databaseURL: 'https://ejeep-tracker-thesis-7b288-default-rtdb.firebaseio.com',
-	//   projectId: 'ejeep-tracker-thesis-7b288',
-	//   storageBucket: 'ejeep-tracker-thesis-7b288.appspot.com',
-	//   messagingSenderId: '450588065691',
-	//   appId: '1:450588065691:ios:10115a25ef5892b6a82b3e',
-	// };
-	// const app = initializeApp(firebaseConfig);
-	// const dbRef = ref(getDatabase());
+	// 	apiKey: 'AIzaSyCpyjxMbd3rYz5fdoOqxxf1ZVMuqHx5sWk',
+	// 	authDomain: 'ejeep-tracker-thesis-7b288.firebaseapp.com',
+	// 	databaseURL: 'https://ejeep-tracker-thesis-7b288-default-rtdb.firebaseio.com',
+	// 	projectId: 'ejeep-tracker-thesis-7b288',
+	// 	storageBucket: 'ejeep-tracker-thesis-7b288.appspot.com',
+	// 	messagingSenderId: '450588065691',
+	// 	appId: '1:450588065691:ios:10115a25ef5892b6a82b3e'
+	// }
+	// const app = initializeApp(firebaseConfig)
+	// const dbRef = ref(getDatabase())
 
-	// useEffect(()=>{
-	//   const getCities = async () => {
-	//     get(child(dbRef, `glossary`)).then((snapshot) => {
-	//       if (snapshot.exists()) {
-	//         console.log(snapshot.val());
-	//       } else {
-	//         console.log("No data available");
-	//       }
-	//     }).catch((error) => {
-	//       console.error(error);
-	//     });
-	//   }
-	//   getCities()
-	//     .catch(console.error)
-	// },[])
+	// useEffect(() => {
+	// 	const getJeeps = async () => {
+	// 		get(child(dbRef, `ejeeps`))
+	// 			.then((snapshot) => {
+	// 				if (snapshot.exists()) {
+	// 					console.log('user:', i + 1)
+	// 					console.log(snapshot.val())
+	// 				} else {
+	// 					console.log('No data available')
+	// 				}
+	// 			})
+	// 			.catch((error) => {
+	// 				console.error(error)
+	// 			})
+	// 	}
+	// 		getJeeps().catch(console.error)
+
+	// }, [])
 
 	const Stack = createNativeStackNavigator()
 	const MyTheme = {

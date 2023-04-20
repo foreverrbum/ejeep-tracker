@@ -10,7 +10,7 @@ const LineB = require('../assets/images/viewRouteB.png')
 export const SchedulePage = ({ navigation }) => {
 	const [line, handleLine] = useState('A')
 	return (
-		<>
+		<View className="relative h-screen">
 			<LogoContainer></LogoContainer>
 			<TitleBanner title={`ETA FOR LINE ${line} ${line === 'A' ? '(GRADE SCHOOL)' : '(HIGH SCHOOL)'}`} />
 
@@ -18,11 +18,11 @@ export const SchedulePage = ({ navigation }) => {
 
 			<View className="bg-white pt-10 z-20 items-center">{line === 'A' ? <LineASched /> : <LineBSched />}</View>
 
-			<View className="">
-				<Pressable className="" onPress={() => navigation.navigate('RoutesModal')}>
-					<Image source={line === 'A' ? LineA : LineB} className=" w-full -mt-24" resizeMode="contain" />
+			<View className="absolute  bottom-0 z-40  w-full">
+				<Pressable className="flex px-4" onPress={() => navigation.navigate('RoutesModal')}>
+					<Image source={line === 'A' ? LineA : LineB} className="w-full" resizeMode="contain" />
 				</Pressable>
 			</View>
-		</>
+		</View>
 	)
 }
