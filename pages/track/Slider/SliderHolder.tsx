@@ -3,7 +3,7 @@ import { Slider } from './Slider'
 import { CollapsedSlider } from './CollapsedSlider'
 import { FakeSlider } from './FakeSlider'
 
-export const SliderHolder = () => {
+export const SliderHolder = ({ jeeps }) => {
 	const [ignoreRegion, handleIgnoreRegion] = useState({ x: 0, y: 0, width: 0, height: 0 })
 	const [originFocus, handleOriginFocus] = useState(false)
 	const [destinationFocus, handleDestinationFocus] = useState(false)
@@ -30,6 +30,7 @@ export const SliderHolder = () => {
 			handleOriginFocus={handleOriginFocus}
 			destinationFocus={destinationFocus}
 			handleDestinationFocus={handleDestinationFocus}
+			jeeps={jeeps}
 		/>
 	)
 }

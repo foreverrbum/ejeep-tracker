@@ -7,7 +7,7 @@ import { MARKERS } from './track/ROUTES'
 import { RouteFill } from './track/RouteFill'
 import { SliderHolder } from './track/Slider/SliderHolder'
 
-export const TrackPage = ({ navigation }) => {
+export const TrackPage = ({ navigation, jeeps }) => {
 	const [load, handleLoad] = useState(true)
 	const [markers, setMarkers] = useState(MARKERS)
 	const ref = useRef()
@@ -52,7 +52,7 @@ export const TrackPage = ({ navigation }) => {
 					})}
 					<RouteFill />
 				</MapView>
-				<SliderHolder />
+				<SliderHolder jeeps={jeeps} />
 			</View>
 		</View>
 	)

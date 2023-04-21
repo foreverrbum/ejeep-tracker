@@ -1,9 +1,9 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Platform, UIManager, LayoutAnimation, Animated, PanResponder } from 'react-native'
 import { Form } from './Form'
 import { Dropdown } from './Dropdown'
 import { Routes } from './Routes'
-import { isInsideRegion } from './helper'
+import { getRoute, isInsideRegion } from './helper'
 import { TEST_ROUTE } from '../ROUTES'
 
 if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental) {
@@ -17,11 +17,35 @@ export const Slider = ({
 	originFocus,
 	handleOriginFocus,
 	destinationFocus,
-	handleDestinationFocus
+	handleDestinationFocus,
+	jeeps
 }) => {
 	const [route, handleRoute] = useState(null)
 	const [origin, handleOrigin] = useState(null)
 	const [destination, handleDestination] = useState(null)
+	const [selected, handleSelected] = useState(null)
+
+	useEffect(() => {
+		if (!selected) return
+		if (originFocus) {
+			if (selected === destination) return
+			handleOrigin(selected)
+			handleOriginFocus(false)
+			if (!destination) handleDestinationFocus(true)
+		}
+		if (destinationFocus) {
+			if (selected === destination) return
+			handleDestination(selected)
+			handleDestinationFocus(false)
+			if (!origin) handleOriginFocus(true)
+		}
+	}, [selected])
+
+	useEffect(() => {
+		if (!origin || !destination) return
+		handleRoute(getRoute(origin, destination, jeeps))
+	}, [origin, destination])
+
 	const panResponder = useRef(
 		PanResponder.create({
 			onMoveShouldSetPanResponder: (evt, gestureState) => {
@@ -60,7 +84,11 @@ export const Slider = ({
 				destination={destination}
 				handleDestination={handleDestination}
 			/>
-			{!route ? <Dropdown /> : <Routes route={route} />}
+			{originFocus === true || destinationFocus === true || !route ? (
+				<Dropdown handleSelected={handleSelected} />
+			) : (
+				<Routes route={route} />
+			)}
 		</Animated.View>
 	)
 }

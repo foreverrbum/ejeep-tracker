@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { initializeApp } from 'firebase/app'
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context'
 import { getDatabase, ref, child, get } from 'firebase/database'
@@ -8,39 +8,9 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { TrackNavIcon, ScheduleNavIcon, AboutNavIcon, SupportNavIcon } from './assets/svgs'
 import { TrackPage, SchedulePage, AboutPage, SupportPage, RoutesModal } from './pages'
 import './styles'
+import _ from 'lodash'
 
 export default function App() {
-	// const firebaseConfig = {
-	// 	apiKey: 'AIzaSyCpyjxMbd3rYz5fdoOqxxf1ZVMuqHx5sWk',
-	// 	authDomain: 'ejeep-tracker-thesis-7b288.firebaseapp.com',
-	// 	databaseURL: 'https://ejeep-tracker-thesis-7b288-default-rtdb.firebaseio.com',
-	// 	projectId: 'ejeep-tracker-thesis-7b288',
-	// 	storageBucket: 'ejeep-tracker-thesis-7b288.appspot.com',
-	// 	messagingSenderId: '450588065691',
-	// 	appId: '1:450588065691:ios:10115a25ef5892b6a82b3e'
-	// }
-	// const app = initializeApp(firebaseConfig)
-	// const dbRef = ref(getDatabase())
-
-	// useEffect(() => {
-	// 	const getJeeps = async () => {
-	// 		get(child(dbRef, `ejeeps`))
-	// 			.then((snapshot) => {
-	// 				if (snapshot.exists()) {
-	// 					console.log('user:', i + 1)
-	// 					console.log(snapshot.val())
-	// 				} else {
-	// 					console.log('No data available')
-	// 				}
-	// 			})
-	// 			.catch((error) => {
-	// 				console.error(error)
-	// 			})
-	// 	}
-	// 		getJeeps().catch(console.error)
-
-	// }, [])
-
 	const Stack = createNativeStackNavigator()
 	const MyTheme = {
 		...DefaultTheme,
@@ -69,6 +39,36 @@ export default function App() {
 }
 
 const TabNavigation = () => {
+	const [jeeps, handleJeeps] = useState({})
+	const firebaseConfig = {
+		apiKey: 'AIzaSyCpyjxMbd3rYz5fdoOqxxf1ZVMuqHx5sWk',
+		authDomain: 'ejeep-tracker-thesis-7b288.firebaseapp.com',
+		databaseURL: 'https://ejeep-tracker-thesis-7b288-default-rtdb.firebaseio.com',
+		projectId: 'ejeep-tracker-thesis-7b288',
+		storageBucket: 'ejeep-tracker-thesis-7b288.appspot.com',
+		messagingSenderId: '450588065691',
+		appId: '1:450588065691:ios:10115a25ef5892b6a82b3e'
+	}
+	const app = initializeApp(firebaseConfig)
+	const dbRef = ref(getDatabase())
+
+	useEffect(() => {
+		const getJeeps = async () => {
+			get(child(dbRef, `ejeeps`))
+				.then((snapshot) => {
+					if (snapshot.exists()) {
+						handleJeeps(_.values(snapshot.val()))
+					} else {
+						console.log('No data available')
+					}
+				})
+				.catch((error) => {
+					console.error(error)
+				})
+		}
+		getJeeps().catch(console.error)
+	}, [])
+
 	const insets = useSafeAreaInsets()
 	const Tab = createBottomTabNavigator()
 	return (
@@ -86,7 +86,7 @@ const TabNavigation = () => {
 		>
 			<Tab.Screen
 				name="Home"
-				component={TrackPage}
+				children={(props) => <TrackPage {...props} jeeps={jeeps} />}
 				options={{
 					tabBarLabel: 'TRACK',
 					tabBarIcon: (props) => <TrackNavIcon {...props} />

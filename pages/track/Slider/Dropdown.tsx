@@ -1,6 +1,6 @@
 import { View } from 'react-native'
 import { InputSuggestions } from './InputSuggestions'
-export const Dropdown = () => {
+export const Dropdown = ({ handleSelected }) => {
 	return (
 		<>
 			{/* Divider */}
@@ -10,7 +10,7 @@ export const Dropdown = () => {
 
 			{/* Input Suggestions */}
 			<View className="flex w-full">
-				<InputSuggestions />
+				<InputSuggestions handleSelected={handleSelected} />
 			</View>
 		</>
 	)

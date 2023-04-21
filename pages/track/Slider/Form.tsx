@@ -35,7 +35,7 @@ export const Form = ({
 							<Text
 								className={`text-sm leading-4 text-gray-dark ${originFocus === true ? 'font-medium' : 'opacity-50'}`}
 							>
-								{origin ?? 'Select Starting Point'}
+								{origin?.label ? origin.label : 'Select Starting Point'}
 							</Text>
 						</Pressable>
 					</View>
@@ -58,7 +58,7 @@ export const Form = ({
 									destinationFocus === true ? 'font-medium' : 'opacity-50'
 								}`}
 							>
-								{destination ?? 'Select Destination'}
+								{destination?.label ? destination.label : 'Select Destination'}
 							</Text>
 						</Pressable>
 					</View>

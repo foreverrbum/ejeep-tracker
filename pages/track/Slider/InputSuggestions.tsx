@@ -1,10 +1,10 @@
 import { useState } from 'react'
-import { Text, View, ScrollView } from 'react-native'
+import { Text, View, ScrollView, Pressable } from 'react-native'
 import { Bus } from '../../../assets/svgs'
 import { ALL_STATIONS } from '../ROUTES'
 import _ from 'lodash'
 
-export const InputSuggestions = () => {
+export const InputSuggestions = ({ handleSelected }) => {
 	const [suggestions, handleSuggestions] = useState(ALL_STATIONS)
 
 	return (
@@ -12,7 +12,7 @@ export const InputSuggestions = () => {
 			{suggestions.map((station, i) => {
 				return (
 					<View key={i}>
-						<View className="ml-[15px]  flex flex-row h-[60px]">
+						<Pressable onPress={() => handleSelected(station)} className="ml-[15px]  flex flex-row h-[60px]">
 							{/* change to justify-center if not xavier */}
 							<View
 								className={`w-10 flex flex-row items-center ${
@@ -27,7 +27,7 @@ export const InputSuggestions = () => {
 								<Text className="text-base font-bold text-gray-black">{station.label}</Text>
 								{/* <Text className="text-sm text-gray-black">Closest Station</Text> */}
 							</View>
-						</View>
+						</Pressable>
 
 						{/* divider */}
 						<View className="w-full flex">
