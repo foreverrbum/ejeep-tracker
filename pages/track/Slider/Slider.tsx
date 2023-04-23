@@ -21,6 +21,8 @@ export const Slider = ({
 	jeeps
 }) => {
 	const [route, handleRoute] = useState(null)
+	const [seatBanner, handleSeatBanner] = useState(null)
+
 	const [origin, handleOrigin] = useState(null)
 	const [destination, handleDestination] = useState(null)
 	const [selected, handleSelected] = useState(null)
@@ -43,7 +45,9 @@ export const Slider = ({
 
 	useEffect(() => {
 		if (!origin || !destination) return
-		handleRoute(getRoute(origin, destination, jeeps))
+		const { route: newRoute, seatBanner: newBanner } = getRoute(origin, destination, jeeps)
+		handleRoute(newRoute)
+		handleSeatBanner(newBanner)
 	}, [origin, destination])
 
 	const panResponder = useRef(
@@ -87,7 +91,7 @@ export const Slider = ({
 			{originFocus === true || destinationFocus === true || !route ? (
 				<Dropdown handleSelected={handleSelected} />
 			) : (
-				<Routes route={route} />
+				<Routes route={route} seatBanner={seatBanner} />
 			)}
 		</Animated.View>
 	)

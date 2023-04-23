@@ -2,12 +2,8 @@ import { useState } from 'react'
 import { View, Text, ScrollView, Pressable } from 'react-native'
 import { GRAY_DARK } from '../../../constants/colors'
 import { Destination, Dropdown, Origin, Seat, A, B, ArrowRight } from './../../../assets/svgs'
-export const Routes = ({ route }) => {
+export const Routes = ({ route, seatBanner }) => {
 	const [expand, handleExpand] = useState(false)
-	const seatBanner = {
-		line: 'b',
-		seats: 10
-	}
 	// bg-line-a
 	// bg-line-b
 	return (

@@ -14,6 +14,10 @@ export const getRoute = (origin, destination, jeeps) => {
 		lines: [],
 		stations: []
 	}
+	let seatBanner = {
+		line: '',
+		seats: 0
+	}
 	let jeep_stations = []
 
 	// setting lines
@@ -85,6 +89,8 @@ export const getRoute = (origin, destination, jeeps) => {
 		route.stations.map((station) => {
 			station.time = station.time ? moment.unix(station.time).format('LT') : '-'
 		})
+		// set seatbanner details
+		seatBanner.seats = jeep_for_origin.seats
 	}
 	// CASE 2: the route involves one line
 	else {
@@ -116,7 +122,10 @@ export const getRoute = (origin, destination, jeeps) => {
 			if (jeep.eta[origin.id][0] > jeep.eta[station.id][i]) i = 1
 			station.time = moment.unix(jeep.eta[station.id][i]).format('LT')
 		})
+		// set seatBanner details
+		seatBanner.seats = jeep.seats
 	}
+	seatBanner.line = route.lines[0]
 
-	return route
+	return { route, seatBanner }
 }
