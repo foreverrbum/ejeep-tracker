@@ -1,0 +1,24 @@
+{
+	"build": {
+		"development-simulator": {
+			"node": "16.0.0",
+			"developmentClient": true,
+			"distribution": "internal",
+			"ios": {
+				"simulator": true
+			}
+		},
+		"development": {
+			"node": "16.0.0",
+			"developmentClient": true,
+			"distribution": "internal"
+		},
+		"preview": {
+			"node": "16.0.0",
+			"distribution": "internal"
+		},
+		"production": {
+			"node": "16.0.0"
+		}
+	}
+}

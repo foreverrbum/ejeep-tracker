@@ -1,6 +1,6 @@
 {
 	"expo": {
-		"name": "expo",
+		"name": "Ejeep Tracker",
 		"slug": "expo",
 		"version": "1.0.0",
 		"orientation": "portrait",
@@ -16,16 +16,27 @@
 		},
 		"assetBundlePatterns": ["**/*"],
 		"ios": {
-			"supportsTablet": true
+			"supportsTablet": true,
+			"bundleIdentifier": "com.foreverrbum.expo",
+			"config": {
+				"googleMapsApiKey": "AIzaSyA2gfM5kzGeHTN4x0VOAxtMBzLMvx4OCBo"
+			}
 		},
 		"android": {
 			"adaptiveIcon": {
 				"foregroundImage": "./assets/adaptive-icon.png",
 				"backgroundColor": "#FFFFFF"
-			}
+			},
+			"package": "com.foreverrbum.expo",
+			"config": { "googleMaps": { "apiKey": "AIzaSyA2gfM5kzGeHTN4x0VOAxtMBzLMvx4OCBo" } }
 		},
 		"web": {
 			"favicon": "./assets/favicon.png"
+		},
+		"extra": {
+			"eas": {
+				"projectId": "ce3d238a-0931-4c7c-aa87-bc879b040223"
+			}
 		}
 	}
 }

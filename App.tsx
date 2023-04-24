@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Platform } from 'react-native'
 import { initializeApp } from 'firebase/app'
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context'
 import { getDatabase, ref, child, get } from 'firebase/database'
@@ -41,7 +42,8 @@ export default function App() {
 const TabNavigation = () => {
 	const [jeeps, handleJeeps] = useState({})
 	const firebaseConfig = {
-		apiKey: 'AIzaSyCpyjxMbd3rYz5fdoOqxxf1ZVMuqHx5sWk',
+		apiKey:
+			Platform.OS === 'ios' ? 'AIzaSyCpyjxMbd3rYz5fdoOqxxf1ZVMuqHx5sWk' : 'AIzaSyARa8-BbxeFPChvWByubuc48gr7DPmZ5qY',
 		authDomain: 'ejeep-tracker-thesis-7b288.firebaseapp.com',
 		databaseURL: 'https://ejeep-tracker-thesis-7b288-default-rtdb.firebaseio.com',
 		projectId: 'ejeep-tracker-thesis-7b288',
