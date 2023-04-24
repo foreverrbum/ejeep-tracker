@@ -6,6 +6,7 @@ import { BPin } from '../assets/svgs'
 import { MARKERS } from './track/ROUTES'
 import { RouteFill } from './track/RouteFill'
 import { SliderHolder } from './track/Slider/SliderHolder'
+import { Shuttle } from '../assets/svgs'
 
 export const TrackPage = ({ navigation, jeeps }) => {
 	const [load, handleLoad] = useState(true)
@@ -50,6 +51,15 @@ export const TrackPage = ({ navigation, jeeps }) => {
 							</Marker>
 						)
 					})}
+					{jeeps.length > 0 &&
+						jeeps.map(({ line, location }, i) => {
+							return (
+								<Marker key={i} coordinate={location} zIndex={2}>
+									<Shuttle line={line} />
+								</Marker>
+							)
+						})}
+
 					<RouteFill />
 				</MapView>
 				<SliderHolder jeeps={jeeps} />
