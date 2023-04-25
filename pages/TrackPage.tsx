@@ -46,6 +46,7 @@ export const TrackPage = ({ navigation, jeeps }) => {
 					initialRegion={INITIAL_LOCATION}
 					customMapStyle={CUSTOM_MAP_STYLES}
 					minZoomLevel={16.2}
+					showsUserLocation={true}
 				>
 					{markers.map((marker, i) => {
 						return (
