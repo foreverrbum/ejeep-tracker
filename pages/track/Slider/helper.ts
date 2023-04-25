@@ -9,7 +9,7 @@ export const isInsideRegion = (x, y, ignoreRegion) => {
 		y <= ignoreRegion.y + ignoreRegion.height
 	)
 }
-export const getRoute = (origin, destination, jeeps) => {
+export const getRoute = (origin, destination, jeeps, handleSelectedJeepIdx) => {
 	let route = {
 		lines: [],
 		stations: []
@@ -91,6 +91,7 @@ export const getRoute = (origin, destination, jeeps) => {
 		})
 		// set seatbanner details
 		seatBanner.seats = jeep_for_origin.seats
+		handleSelectedJeepIdx([_.indexOf(jeeps, jeep_for_origin), _.indexOf(jeeps, jeep_for_dest)])
 	}
 	// CASE 2: the route involves one line
 	else {
@@ -124,6 +125,7 @@ export const getRoute = (origin, destination, jeeps) => {
 		})
 		// set seatBanner details
 		seatBanner.seats = jeep.seats
+		handleSelectedJeepIdx([_.indexOf(jeeps, jeep)])
 	}
 	seatBanner.line = route.lines[0]
 

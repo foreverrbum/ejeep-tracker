@@ -10,8 +10,14 @@ import { Shuttle } from '../assets/svgs'
 
 export const TrackPage = ({ navigation, jeeps }) => {
 	const [load, handleLoad] = useState(true)
+	const [displayJeeps, handleDisplayJeeps] = useState(jeeps)
+	const [selectedJeepIdx, handleSelectedJeepIdx] = useState([])
 	const [markers, setMarkers] = useState(MARKERS)
 	const ref = useRef()
+	useEffect(() => {
+		if (selectedJeepIdx.length === 0) handleDisplayJeeps(jeeps)
+		else handleDisplayJeeps(selectedJeepIdx.map((i) => jeeps[i]))
+	}, [selectedJeepIdx, jeeps])
 
 	useEffect(() => {
 		if (ref.current) {
@@ -51,8 +57,8 @@ export const TrackPage = ({ navigation, jeeps }) => {
 							</Marker>
 						)
 					})}
-					{jeeps.length > 0 &&
-						jeeps.map(({ line, location }, i) => {
+					{displayJeeps.length > 0 &&
+						displayJeeps.map(({ line, location }, i) => {
 							return (
 								<Marker key={i} coordinate={location} zIndex={2}>
 									<Shuttle line={line} />
@@ -62,7 +68,7 @@ export const TrackPage = ({ navigation, jeeps }) => {
 
 					<RouteFill />
 				</MapView>
-				<SliderHolder jeeps={jeeps} />
+				<SliderHolder jeeps={jeeps} handleSelectedJeepIdx={handleSelectedJeepIdx} />
 			</View>
 		</View>
 	)

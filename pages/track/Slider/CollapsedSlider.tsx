@@ -6,7 +6,16 @@ if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental
 	UIManager.setLayoutAnimationEnabledExperimental(true)
 }
 
-export const CollapsedSlider = ({ expand, handleExpand, handleOriginFocus, handleDestinationFocus }) => {
+export const CollapsedSlider = ({
+	expand,
+	handleExpand,
+	handleOriginFocus,
+	handleDestinationFocus,
+	origin,
+	destination,
+	handleOrigin,
+	handleDestination
+}) => {
 	const panResponder = useRef(
 		PanResponder.create({
 			onMoveShouldSetPanResponder: (evt, gestureState) => true,
@@ -32,6 +41,10 @@ export const CollapsedSlider = ({ expand, handleExpand, handleOriginFocus, handl
 				handleExpand={handleExpand}
 				handleOriginFocus={handleOriginFocus}
 				handleDestinationFocus={handleDestinationFocus}
+				origin={origin}
+				destination={destination}
+				handleOrigin={handleOrigin}
+				handleDestination={handleDestination}
 			/>
 		</Animated.View>
 	)

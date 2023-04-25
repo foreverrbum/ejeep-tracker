@@ -18,13 +18,16 @@ export const Slider = ({
 	handleOriginFocus,
 	destinationFocus,
 	handleDestinationFocus,
-	jeeps
+	jeeps,
+	handleSelectedJeepIdx,
+	origin,
+	handleOrigin,
+	destination,
+	handleDestination
 }) => {
 	const [route, handleRoute] = useState(null)
 	const [seatBanner, handleSeatBanner] = useState(null)
 
-	const [origin, handleOrigin] = useState(null)
-	const [destination, handleDestination] = useState(null)
 	const [selected, handleSelected] = useState(null)
 
 	useEffect(() => {
@@ -45,7 +48,7 @@ export const Slider = ({
 
 	useEffect(() => {
 		if (!origin || !destination) return
-		const { route: newRoute, seatBanner: newBanner } = getRoute(origin, destination, jeeps)
+		const { route: newRoute, seatBanner: newBanner } = getRoute(origin, destination, jeeps, handleSelectedJeepIdx)
 		handleRoute(newRoute)
 		handleSeatBanner(newBanner)
 	}, [origin, destination])
