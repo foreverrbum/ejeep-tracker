@@ -96,7 +96,7 @@ const TabNavigation = () => {
 			/>
 			<Tab.Screen
 				name="Schedule"
-				component={SchedulePage}
+				children={(props) => <SchedulePage {...props} jeeps={jeeps} />}
 				options={{
 					tabBarLabel: 'ETAs',
 					tabBarIcon: (props) => <ScheduleNavIcon {...props} />

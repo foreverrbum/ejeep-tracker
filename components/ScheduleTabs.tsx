@@ -5,18 +5,18 @@ export const ScheduleTabs = ({ line, handleLine }) => {
 		<>
 			<View className="flex flex-row mt-5 ">
 				<Pressable
-					onPress={() => handleLine('A')}
+					onPress={() => handleLine('a')}
 					className={`flex content-center grow items-center  shadow rounded-tr-xl bg-white p-2 text-line-a ${
-						line === 'A' && 'z-10'
+						line === 'a' && 'z-10'
 					}`}
 				>
 					<Text className="text-base text-line-a font-semibold">LINE A</Text>
 					<Text className="text-line-a font-semibold">(GRADE SCHOOL)</Text>
 				</Pressable>
 				<Pressable
-					onPress={() => handleLine('B')}
+					onPress={() => handleLine('b')}
 					className={`flex content-center grow items-center shadow rounded-tl-xl bg-white p-2 text-line-b ${
-						line === 'B' && 'z-10'
+						line === 'b' && 'z-10'
 					}`}
 				>
 					<Text className=" text-base text-line-b font-semibold">LINE B</Text>
@@ -24,8 +24,8 @@ export const ScheduleTabs = ({ line, handleLine }) => {
 				</Pressable>
 			</View>
 			<View className="bg-white flex flex-row">
-				<View className={`flex grow bg-white h-2 ${line === 'A' ? 'z-10' : 'shadow'}`}></View>
-				<View className={`flex grow bg-white h-2 ${line === 'B' ? 'z-10' : 'shadow'}`}></View>
+				<View className={`flex grow bg-white h-2 ${line === 'a' ? 'z-10' : 'shadow'}`}></View>
+				<View className={`flex grow bg-white h-2 ${line === 'b' ? 'z-10' : 'shadow'}`}></View>
 			</View>
 		</>
 	)
