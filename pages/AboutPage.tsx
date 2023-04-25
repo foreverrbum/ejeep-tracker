@@ -28,8 +28,8 @@ export const AboutPage = ({ navigation }) => {
 				</Text>
 			</View>
 			<View className="relative flex items-center">
-				<Image source={image} className="h-16 w-auto" resizeMode="contain" />
-				<Pressable className="absolute p-8 py-6" onPress={() => navigation.navigate('RoutesModal')}>
+				<Image source={image} className="h-[98px] w-auto" resizeMode="contain" />
+				<Pressable className="absolute p-8 py-9" onPress={() => navigation.navigate('RoutesModal')}>
 					<Text className="font-bold text-gray-dark text-base">View Map</Text>
 				</Pressable>
 			</View>

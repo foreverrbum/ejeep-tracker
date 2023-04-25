@@ -38,11 +38,11 @@ export const SchedulePage = ({ navigation, jeeps }) => {
 				</View>
 				{stations.map((station) => {
 					return (
-						<View className="flex-row px-10 pb-4">
+						<View key={station.id} className="flex-row px-10 pb-4">
 							<Text className="text-gray-black text-base grow ">{station.label}</Text>
 							{displayJeeps.map((jeep, i) => {
 								return (
-									<Text className={`text-gray-black text-base w-[78px] text-center ${i == 0 && 'mx-3'}`}>
+									<Text key={i} className={`text-gray-black text-base w-[78px] text-center ${i == 0 && 'mx-3'}`}>
 										{moment.unix(jeep.eta[station.id][0]).format('LT')}
 									</Text>
 								)
@@ -53,7 +53,7 @@ export const SchedulePage = ({ navigation, jeeps }) => {
 			</View>
 
 			<View className="absolute  bottom-0 z-40  w-full">
-				<Pressable className="flex px-4" onPress={() => navigation.navigate('RoutesModal')}>
+				<Pressable className="flex px-4" onPress={() => navigation.navigate('RoutesModal', { line: line })}>
 					<Image source={line === 'a' ? LineA : LineB} className="w-full" resizeMode="contain" />
 				</Pressable>
 			</View>
