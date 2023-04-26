@@ -12,9 +12,13 @@ import {
 import { useState } from 'react'
 import { LogoContainer } from '../components/LogoContainer'
 import { ArrowLeft } from '../assets/svgs'
+import { getDatabase, ref, set } from 'firebase/database'
+
 export const SupportPage = ({ navigation }) => {
-	const [value, onChangeText] = useState('Type Here')
+	const [value, onChangeText] = useState('')
 	const [showModal, handleShowModal] = useState(false)
+	const db = getDatabase()
+
 	return (
 		<>
 			<View className="flex flex-1 items-center content-center ">
@@ -62,6 +66,7 @@ export const SupportPage = ({ navigation }) => {
 									multiline={true}
 									numberOfLines={20}
 									textAlignVertical="top"
+									placeholder="Type Here"
 									onChangeText={(text) => {
 										onChangeText(text)
 									}}
@@ -70,7 +75,13 @@ export const SupportPage = ({ navigation }) => {
 								/>
 							</ScrollView>
 							<View className="flex items-center">
-								<Pressable className="my-5 bg-blue-dark rounded-md px-6 py-1 " onPress={() => handleShowModal(true)}>
+								<Pressable
+									className="my-5 bg-blue-dark rounded-md px-6 py-1 "
+									onPress={() => {
+										set(ref(db, 'support/' + Math.floor(Math.random() * 9000 + 1000) + '/'), value)
+										handleShowModal(true)
+									}}
+								>
 									<Text className="font-semibold text-white text-base ">Submit</Text>
 								</Pressable>
 							</View>
